@@ -1,30 +1,24 @@
 import styles from './index.less';
-import { connect } from 'umi';
-import { useEffect, useState } from 'react';
+import request from 'umi-request';
 
-function IndexPage(props) {
-  const { dispatch } = props;
-  const [count, setCount] = useState(0);
+export default function IndexPage() {
+  // 1. 最原始的请求
+  function fetchGraphql() {
+    request
+      .post('/api/graphql', {
+        data: {
+          query: '{name}',
+        },
+      })
+      .then((res) => console.log('res', res));
+  }
 
   return (
     <div>
       <h1 className={styles.title}>Page index</h1>
       <div>
-        <button
-          onClick={() =>
-            dispatch({
-              type: 'user/setState',
-              payload: {
-                list: [],
-              },
-            })
-          }
-        >
-          button
-        </button>
+        <button onClick={() => fetchGraphql()}>graphql query</button>
       </div>
     </div>
   );
 }
-
-export default connect(({ user }) => ({ user }))(IndexPage);

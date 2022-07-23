@@ -10,13 +10,8 @@ export default defineConfig({
     hmr: true,
   },
   proxy: {
-    '/api3008': {
-      target: 'http://localhost:3008',
-      changeOrigin: true,
-      pathRewrite: { '^/api3008': '' },
-    },
     '/api': {
-      target: 'http://localhost:3000',
+      target: 'http://localhost:4000',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
     },
