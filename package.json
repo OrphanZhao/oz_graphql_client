@@ -24,7 +24,8 @@
     "graphql": "^16.5.0",
     "react": "17.x",
     "react-dom": "17.x",
-    "umi": "^3.5.30"
+    "umi": "^3.5.30",
+    "urql": "^2.2.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",
